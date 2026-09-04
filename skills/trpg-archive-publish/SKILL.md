@@ -28,3 +28,9 @@ description: >
 - Do not start Discord/HKTRPG bots; point at `adapters/hktrpg/` stubs only.
 - Multi-session Hub is not this skill.
 - Never publish `keep-appendix.md` or GM-only prep blocks into player pages.
+
+## Next step (required)
+
+> **下一步（建議）：** 用 `cd archive && npm run dev` 預覽 `/sessions/<id>/`；滿意就可分享給玩家（注意 `publish_mode`）。  
+> **也可以：** 已有多團 → `/trpg-campaign-hub`；準備下一團 → `/trpg-live-aid`。  
+> Skills **不會**自動串接。

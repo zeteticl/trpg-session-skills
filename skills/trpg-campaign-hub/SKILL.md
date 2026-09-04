@@ -28,3 +28,9 @@ Charter §12.
 - Single-session publish stays `trpg-archive-publish`; this skill only builds the cross-session Hub.
 - Do not invent clues not present in session unresolved files.
 - Do not start bots.
+
+## Next step (required)
+
+> **下一步（建議）：** 預覽 `/hub/`；缺單團頁再補 `/trpg-archive-publish`。  
+> **也可以：** 開下一團 → `/trpg-live-aid`。  
+> Skills **不會**自動串接。

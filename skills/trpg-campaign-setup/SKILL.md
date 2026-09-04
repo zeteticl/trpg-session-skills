@@ -90,15 +90,25 @@ Then branch gently:
 | 只有文字／構想 | Help them save paste into `source/scenario.zh-Hant.md`. If they know print pages, they may add anchors; otherwise pages stay `p.?` later. |
 | 暫時沒有 | Stop. Say the folders are ready whenever they are. **End turn.** |
 
-### Mandatory handoff (do not skip)
+## Next step (required)
 
 As soon as `source/scenario.*.md` exists (or they confirm the PDF is ready in `source/`), you **must**:
 
 1. Tell them setup is finished for this skill.
-2. Say clearly: 「接下來請執行 `/trpg-scenario-analyze`（拆備團結構）。Skills **不會**自動串接。」
-3. **End your turn.** Do **not** read chapters to fill `prep/`. Do **not** write `prep/00`–`15`. Do **not** continue as if you were the analyze skill.
+2. Use this shape:
 
-If the user asks you to keep going without the slash command, remind them once to run `/trpg-scenario-analyze`, or tell them to invoke that skill by name — still do not write prep files under this skill.
+> **下一步（建議）：** `/trpg-scenario-analyze` — 拆備團結構（頁碼與 GM/玩家可見分流）。  
+> **也可以：** `/trpg-localize`（若還要譯）／先休息。  
+> Skills **不會**自動串接。
+
+3. **End your turn.** Do **not** read chapters to fill `prep/`. Do **not** write `prep/00`–`15`.
+
+If they only wanted empty folders and have no PDF yet:
+
+> **下一步（建議）：** 把 PDF 放進 `modules/starter-module/source/` 後再叫我，或有正文後執行 `/trpg-scenario-analyze`。  
+> Skills **不會**自動串接。
+
+See `docs/next-steps.md`.
 
 ## Hard rules
 
@@ -106,3 +116,4 @@ If the user asks you to keep going without the slash command, remind them once t
 - Do not copy commercial module text into public Archive guidance; personal prep OK with warning.
 - Prefer creating first; questions second; IDs only if they volunteer custom names in the same breath as setup.
 - **Never** silently chain into analyze / localize / handout-art / publish in the same setup turn.
+- Every setup turn ends with **Next step** guidance (`docs/next-steps.md`).

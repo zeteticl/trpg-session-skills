@@ -4,6 +4,8 @@
 
 Skills 1–12 均已提供 SKILL.md。Token 裁切等腳本不算 skill。
 
+**每個 skill 結束時都必須引導「下一步」**（建議的 `/trpg-…` 指令＋一句原因）；skills **不會**自動串接。見 `docs/next-steps.md`。
+
 文中的 **GM** 即本專案詞彙裡的 Keep（人類主持人）。
 
 ---

@@ -28,3 +28,11 @@ Make the Vault Root findable and conventional. **No new narrative content.**
 - Do not write or rewrite `prep/`, glossary translations, Prompt Packs, `recap.md`, or Archive sites.
 - Prefer move over copy; if duplicates differ, keep both under `duplicates/` and flag for GM.
 - Never delete without explicit GM confirmation.
+
+## Next step (required)
+
+Pick **one primary** from what is now unblocked:
+
+> **下一步（建議）：** （擇一）有劇本原文 → `/trpg-scenario-analyze`；有團筆記待摘要 → `/trpg-session-recap`；空殼都沒有 → `/trpg-campaign-setup`。  
+> **也可以：** 其餘仍缺的那一項。  
+> Skills **不會**自動串接。

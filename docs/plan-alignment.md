@@ -9,6 +9,7 @@ Settled design vs repo status. Update when a decision changes.
 | Source page cites on prep / live-aid / handout-art | Done | `docs/source-citations.md`, skills + contracts |
 | Human lists in Markdown; YAML only for machine manifests | Done | `docs/formats.md` |
 | Peer-pattern strengthens (visibility, clues≥2, handoff, diegetic handouts) | Done | `docs/strengthen-from-peers.md` + analyze/live-aid/recap/handout-art |
+| Every skill ends with an explicit next-step recommendation | Done | `docs/next-steps.md` + all `skills/*/SKILL.md` |
 | Module + Campaign + Embedded Module | Done (layout); Embedded example optional | `docs/vault-layout.md`, setup skill |
 | Session Archive = usable MVP | Done | `/sessions/<id>/` |
 | Campaign Hub = upgrade home | Done | `/hub/`, `/pcs/<id>/` |

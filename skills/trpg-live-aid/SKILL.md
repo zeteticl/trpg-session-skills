@@ -67,3 +67,9 @@ Prefer emotion → strategy (調查低語、危機急促、**揭示＝silence**)
 - Markdown only for Live Aid outputs.
 - No dice, no portraying NPCs, no `recap.md`.
 - Module-level BGM catalog stays in `prep/11-bgm.md`; tonight’s order only in `live-aid.md`.
+
+## Next step (required)
+
+> **下一步（建議）：** 去開團；團後把筆記寫進 `sessions/<nnn>/notes.md`，再執行 `/trpg-session-recap`。  
+> **也可以：** 有錄音逐字稿 → 先 `/trpg-session-transcribe`；還缺圖 → `/trpg-handout-art`。  
+> Skills **不會**自動串接。

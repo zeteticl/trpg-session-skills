@@ -35,6 +35,14 @@ If multiple intents, order: setup → analyze → localize → handout-art → l
 
 ## Response shape
 
-1. One line: chosen skill + why.
-2. Tell the user/agent to run that skill next (e.g. `/trpg-scenario-analyze`). Skills do **not** auto-chain.
+1. One line: chosen skill + why (plain language).
+2. Optional: one alternative if the intent was ambiguous.
 3. Stop. Do not start the work yourself.
+
+## Next step (required)
+
+> **下一步（建議）：** `/trpg-<chosen-skill>` — 一句原因。  
+> **也可以：** （僅在意圖模糊時給一個替代）。  
+> Skills **不會**自動串接。
+
+See `docs/next-steps.md`.

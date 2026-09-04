@@ -40,10 +40,15 @@ Also set `session.yaml` field `transcript: transcript.md` if the file exists.
 1. If no STT file path, stop and ask.
 2. Clean obvious junk (timestamps-only lines, repeated filler), keep meaning.
 3. Tag speakers when clear; else `Unknown` — do not invent dialogue.
-4. Hand off to `trpg-session-recap` (recap reads transcript + notes).
+4. Recommend `/trpg-session-recap` next (recap reads transcript + notes).
 
 ## Hard rules
 
 - Do not invoke Whisper/ffmpeg/cloud STT.
 - Do not write `recap.md` or publish Archive.
 - Do not fabricate lines missing from the STT source.
+
+## Next step (required)
+
+> **下一步（建議）：** `/trpg-session-recap` — 用 Notes＋Transcript 寫團摘要與 Carry-forward。  
+> Skills **不會**自動串接。

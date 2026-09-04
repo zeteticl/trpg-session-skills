@@ -106,8 +106,12 @@ New NPCs/locations invented or uncertain → tag `DRAFT` until the GM accepts; d
 - No Session Notes, no Prompt Packs, no Archive site.
 - After structural change to source, re-run this skill; locale-only changes → `trpg-localize`.
 
-## Hand-off
+## Next step (required)
 
-- Need translation → `trpg-localize`
-- Need art prompts → `trpg-handout-art`
-- Need tonight’s run sheet → `trpg-live-aid`
+End every successful analyze turn with:
+
+> **下一步（建議）：** `/trpg-handout-art` — 寫人像／背圖／講義 Prompt Pack（含頁碼與揭示台詞）。  
+> **也可以：** `/trpg-live-aid`（今晚就要開）／`/trpg-localize`（還要譯）／草稿很多時先請 GM 確認 `DRAFT`。  
+> Skills **不會**自動串接。
+
+If completeness checklist is mostly ❌: recommend fixing source pages or re-running analyze after GM answers gaps — still name the slash command.

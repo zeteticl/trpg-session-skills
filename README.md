@@ -11,6 +11,7 @@ Human GM (Keep) toolkit: prepare a Module, run light Live Aid, recap a Session, 
 - [docs/source-citations.md](./docs/source-citations.md) — 劇本頁碼標註
 - [docs/formats.md](./docs/formats.md) — MD 為主；YAML 僅機器用
 - [docs/strengthen-from-peers.md](./docs/strengthen-from-peers.md) — 對齊外部專案可偷什麼
+- [docs/next-steps.md](./docs/next-steps.md) — 每個 skill 都要推薦下一步
 - [docs/adr/](./docs/adr/) — decisions
 
 ## Skills (1–12)

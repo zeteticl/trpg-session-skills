@@ -38,3 +38,9 @@ Each pack includes:
 - Do not write prep analysis or recap.
 - Do not invent page numbers; use `p.?` if prep/source lacks a cite.
 - Do not put SAN numbers, solutions, or unrevealed identities into diegetic lines.
+
+## Next step (required)
+
+> **下一步（建議）：** `/trpg-live-aid` — 把揭示時機寫進今晚開團表。  
+> **也可以：** `/trpg-asset-generate`（要真的出圖／stub）／`python scripts/make_token.py …`（有人像要做 Token）。  
+> Skills **不會**自動串接。
