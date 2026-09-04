@@ -34,8 +34,8 @@ The MVP published site for one Session: timeline, recap, unresolved clues, hando
 _Avoid_: VOD site, stream archive (unless audio/video is explicitly the primary artifact)
 
 **Campaign Hub**:
-A future multi-Session site with character pages and an unresolved-clue board. Session Archive structure must not block this upgrade.
-_Avoid_: treating Hub features as MVP requirements
+A multi-Session site with character pages and an unresolved-clue board. Served at `/hub/` (characters at `/pcs/<id>/`). Session Archives stay at `/sessions/<id>/`.
+_Avoid_: treating Hub as a replacement for single-Session Archive publish
 
 ### Assets
 

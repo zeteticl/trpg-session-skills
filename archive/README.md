@@ -1,19 +1,23 @@
-# Session Archive (Astro)
+# Session Archive + Campaign Hub (Astro)
 
-Minimal static site for one or more Session Archives.
+## Levels
+
+| Route | Level | Role |
+|-------|--------|------|
+| `/hub/` | Campaign Hub (upgrade) | Multi-session home, clue board, characters |
+| `/sessions/<id>/` | Session Archive (MVP) | One night’s player-facing recap |
+| `/pcs/<id>/` | Hub | Character page |
+| `/` | — | Redirects to `/hub/` |
 
 ## Dev
 
 ```bash
 cd archive
 npm install
-npm run sync   # copies example session player-facing md into src/content
+npm run sync   # scans examples/vault/campaigns/demo-table
 npm run dev
-npm run build
 ```
 
-`npm run sync` reads:
-`../examples/vault/campaigns/demo-table/sessions/001/`
-and writes player-facing files into `src/data/session/` (never `keep-appendix.md`).
+Override campaign path: `TRPG_CAMPAIGN_PATH=examples/vault/campaigns/demo-table npm run sync`
 
-`npm run sync:hub` reads campaign `hub/` into `src/data/hub/` for `/hub`.
+Never syncs `keep-appendix.md`.

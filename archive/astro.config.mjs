@@ -2,5 +2,8 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   outDir: "dist",
-  trailingSlash: "ignore",
+  trailingSlash: "always",
+  redirects: {
+    "/": "/hub/",
+  },
 });

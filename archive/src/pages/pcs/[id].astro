@@ -1,0 +1,91 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+export function getStaticPaths() {
+  const hubPath = path.join(process.cwd(), "src/data/hub/hub.json");
+  if (!fs.existsSync(hubPath)) return [];
+  const hub = JSON.parse(fs.readFileSync(hubPath, "utf8"));
+  return (hub.pcs || []).map((p) => ({
+    params: { id: p.id },
+    props: { pc: p },
+  }));
+}
+
+const { pc } = Astro.props;
+const roleZh =
+  /role:\s*\n\s*zh-Hant:\s*(.+)/.exec(pc.body)?.[1]?.trim() ||
+  /role:\s*(.+)/.exec(pc.body)?.[1]?.trim() ||
+  "";
+const roleEn =
+  /role:\s*\n\s*zh-Hant:.*\n\s*en:\s*(.+)/.exec(pc.body)?.[1]?.trim() || roleZh;
+const sumZh =
+  /summary:\s*\n\s*zh-Hant:\s*(.+)/.exec(pc.body)?.[1]?.trim() || "";
+const sumEn =
+  /summary:\s*\n\s*zh-Hant:.*\n\s*en:\s*(.+)/.exec(pc.body)?.[1]?.trim() || sumZh;
+---
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pc.title?.en || pc.id}</title>
+    <style>
+      :root {
+        --bg: #14181c;
+        --fg: #e8eef2;
+        --muted: #9aa8b5;
+        --accent: #8fb39a;
+      }
+      body {
+        margin: 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        background:
+          radial-gradient(900px 500px at 10% 0%, #1e2a24 0%, transparent 55%),
+          var(--bg);
+        color: var(--fg);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      a { color: var(--accent); }
+      .meta { color: var(--muted); margin-bottom: 1.5rem; }
+      h1 { margin-bottom: 0.25rem; }
+      .role { color: var(--accent); margin-bottom: 1.25rem; }
+      [data-lang="en"] { display: none; }
+    </style>
+    <script is:inline>
+      (function () {
+        var lang = new URLSearchParams(location.search).get("lang") || "zh-Hant";
+        if (lang !== "en" && lang !== "zh-Hant") lang = "zh-Hant";
+        document.documentElement.lang = lang === "en" ? "en" : "zh-Hant";
+        window.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("[data-lang]").forEach(function (el) {
+            el.style.display = el.getAttribute("data-lang") === lang ? "" : "none";
+          });
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="meta">
+        <a href="/hub/">
+          <span data-lang="zh-Hant">← 團錄總站</span>
+          <span data-lang="en">← Campaign Hub</span>
+        </a>
+        · <a href={`?lang=en`} data-lang="zh-Hant">English</a>
+        <a href={`?lang=zh-Hant`} data-lang="en">繁中</a>
+      </p>
+      <h1 data-lang="zh-Hant">{pc.title?.["zh-Hant"] || pc.id}</h1>
+      <h1 data-lang="en">{pc.title?.en || pc.id}</h1>
+      <p class="role" data-lang="zh-Hant">{roleZh}</p>
+      <p class="role" data-lang="en">{roleEn}</p>
+      <p data-lang="zh-Hant">{sumZh}</p>
+      <p data-lang="en">{sumEn}</p>
+    </main>
+  </body>
+</html>

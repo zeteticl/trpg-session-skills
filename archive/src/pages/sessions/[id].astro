@@ -1,0 +1,137 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+export function getStaticPaths() {
+  const root = path.join(process.cwd(), "src/data/sessions");
+  if (!fs.existsSync(root)) return [];
+  return fs
+    .readdirSync(root, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => ({ params: { id: d.name } }));
+}
+
+const { id } = Astro.params;
+const dir = path.join(process.cwd(), "src/data/sessions", id);
+const recap = fs.existsSync(path.join(dir, "recap.md"))
+  ? fs.readFileSync(path.join(dir, "recap.md"), "utf8")
+  : "_Missing recap — run sync_";
+const clues = fs.existsSync(path.join(dir, "unresolved-clues.md"))
+  ? fs.readFileSync(path.join(dir, "unresolved-clues.md"), "utf8")
+  : "";
+const manifest = fs.existsSync(path.join(dir, "archive-manifest.yaml"))
+  ? fs.readFileSync(path.join(dir, "archive-manifest.yaml"), "utf8")
+  : "";
+const sessionYaml = fs.existsSync(path.join(dir, "session.yaml"))
+  ? fs.readFileSync(path.join(dir, "session.yaml"), "utf8")
+  : "";
+const mode = /publish_mode:\s*(\w+)/.exec(manifest)?.[1] ?? "players";
+const titleZh = /zh-Hant:\s*(.+)/.exec(sessionYaml)?.[1]?.trim() || `Session ${id}`;
+const titleEn = /^\s*en:\s*(.+)$/m.exec(sessionYaml)?.[1]?.trim() || titleZh;
+const mediaJsonPath = path.join(dir, "media.json");
+const mediaFiles = fs.existsSync(mediaJsonPath)
+  ? JSON.parse(fs.readFileSync(mediaJsonPath, "utf8")).files || []
+  : [];
+---
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titleEn}</title>
+    <style>
+      :root {
+        --bg: #1a1f24;
+        --fg: #e8eef2;
+        --muted: #9aa8b5;
+        --accent: #6f9bb8;
+      }
+      body {
+        margin: 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        background:
+          radial-gradient(1200px 600px at 10% -10%, #243040 0%, transparent 50%),
+          var(--bg);
+        color: var(--fg);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      a { color: var(--accent); }
+      h1 { font-weight: 600; margin-bottom: 0.25rem; }
+      .meta { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+      .badge {
+        display: inline-block;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        padding: 0.1rem 0.45rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        margin-left: 0.35rem;
+      }
+      pre {
+        white-space: pre-wrap;
+        font-family: inherit;
+        background: rgba(0, 0, 0, 0.25);
+        padding: 1rem 1.1rem;
+        border-left: 3px solid var(--accent);
+      }
+      h2 { margin-top: 2rem; font-size: 1.15rem; color: var(--accent); }
+      ul { padding-left: 1.2rem; }
+      [data-lang="en"] { display: none; }
+    </style>
+    <script is:inline>
+      (function () {
+        var lang = new URLSearchParams(location.search).get("lang") || "zh-Hant";
+        if (lang !== "en" && lang !== "zh-Hant") lang = "zh-Hant";
+        document.documentElement.lang = lang === "en" ? "en" : "zh-Hant";
+        window.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("[data-lang]").forEach(function (el) {
+            el.style.display = el.getAttribute("data-lang") === lang ? "" : "none";
+          });
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="meta">
+        <a href="/hub/">
+          <span data-lang="zh-Hant">← 團錄總站</span>
+          <span data-lang="en">← Campaign Hub</span>
+        </a>
+        · #{id}
+        <span class="badge">{mode}</span>
+        · <a href={`?lang=en`} data-lang="zh-Hant">English</a>
+        <a href={`?lang=zh-Hant`} data-lang="en">繁中</a>
+      </p>
+      <h1 data-lang="zh-Hant">{titleZh}</h1>
+      <h1 data-lang="en">{titleEn}</h1>
+      <p class="meta" data-lang="zh-Hant">玩家向 Session Archive · 不含 Keep Appendix</p>
+      <p class="meta" data-lang="en">Player-facing Session Archive · Keep Appendix excluded</p>
+      <h2 data-lang="zh-Hant">團摘要</h2>
+      <h2 data-lang="en">Recap</h2>
+      <pre>{recap}</pre>
+      <h2 data-lang="zh-Hant">未解線索</h2>
+      <h2 data-lang="en">Unresolved clues</h2>
+      <pre>{clues}</pre>
+      <h2 data-lang="zh-Hant">媒體</h2>
+      <h2 data-lang="en">Media</h2>
+      {mediaFiles.length ? (
+        <ul>
+          {mediaFiles.map((f) => (
+            <li>{f}</li>
+          ))}
+        </ul>
+      ) : (
+        <>
+          <p class="meta" data-lang="zh-Hant">本團尚未掛媒體檔</p>
+          <p class="meta" data-lang="en">No media files listed for this session</p>
+        </>
+      )}
+    </main>
+  </body>
+</html>

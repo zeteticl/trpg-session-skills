@@ -18,9 +18,9 @@ GM 說明要求如「備團／收團／出圖」。Router 只負責聽懂屬於�
 
 ## 2. trpg-campaign-setup — 先搭空房子
 
-分析與翻譯之前，Vault 要有固定位置：Module、Campaign、Session、Embedded Module。Setup 只蓋空殼（目錄、空白 manifest、檔名位置）。
+分析與翻譯之前，先幫新手建好整座空房子（預設 module／campaign／session 一次建齊），用白話說明資料夾用途，**再**引導如何放入 PDF 或劇本文字。
 
-房子是空的：不拆節奏與結構、不翻譯、不寫 prompt。有正文再交給 analyze。
+不要一開始就追問一堆 ID。房子是空的：不拆節奏與結構、不翻譯、不寫 prompt。有正文（或 PDF 抽成 source）後**必須停住**，請 GM 執行 `/trpg-scenario-analyze`；skills 不會自動串接。
 
 ---
 
@@ -109,7 +109,7 @@ GM 附上 Module 正文。Analyze 讀正文，寫出備團用的完整結構包�
 
 ## 12. trpg-campaign-hub — 多團總入口
 
-多份 Session Archive 之後做角色頁與未解線索看板。單團出站永遠先 archive-publish；Hub 是升級不是替身。
+多份 Session Archive 之後做角色頁與未解線索看板。單團出站永遠先 archive-publish（路由 `/sessions/<id>/`）；Hub 是升級總站（`/hub/`、`/pcs/<id>/`），不是替身。
 
 ---
 

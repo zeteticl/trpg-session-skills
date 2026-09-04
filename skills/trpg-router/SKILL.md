@@ -19,7 +19,7 @@ Classify the GM request and **invoke or instruct the next skill**. Write **no** 
 
 | Intent signals | Next skill |
 |----------------|------------|
-| 新 vault、建團、空殼、setup、scaffold | `trpg-campaign-setup` |
+| 新 vault、建團、空殼、setup、新手備團、第一次備團 | `trpg-campaign-setup`（先建齊資料夾，再引導 PDF） |
 | 拆劇本、備團結構、分析模組、6W、線索網 | `trpg-scenario-analyze` |
 | 翻譯、術語表、localize | `trpg-localize` |
 | 出圖 prompt、人像、背圖、handout 檔名 | `trpg-handout-art` |
@@ -36,5 +36,5 @@ If multiple intents, order: setup → analyze → localize → handout-art → l
 ## Response shape
 
 1. One line: chosen skill + why.
-2. Tell the agent (or user) to load that skill next.
+2. Tell the user/agent to run that skill next (e.g. `/trpg-scenario-analyze`). Skills do **not** auto-chain.
 3. Stop. Do not start the work yourself.

@@ -1,9 +1,9 @@
-# Clue board (Campaign Hub)
+# Clue board
 
-Aggregated from sessions; do not invent.
+Aggregated from sessions/*/unresolved-clues.md
 
-| Session | Clue / open item | Status |
-|---------|------------------|--------|
-| 001 | C3 tide marks under lantern | open |
+| Session | Clue | Status |
+|---------|------|--------|
+| 001 | C3 tide marks under lantern — not decoded | open |
 | 001 | Ending choice not locked | open |
-| 001 | Ah-Sing’s full family map | open |
+| 001 | Ah-Sing’s full family map still fuzzy | open |

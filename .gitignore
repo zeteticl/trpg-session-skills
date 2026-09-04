@@ -1,6 +1,7 @@
 node_modules/
 archive/dist/
 archive/.astro/
+archive/src/data/
 .cursor/
 __pycache__/
 *.pyc

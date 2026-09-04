@@ -5,8 +5,9 @@ Human GM (Keep) toolkit: prepare a Module, run light Live Aid, recap a Session, 
 ## Docs
 
 - [CONTEXT.md](./CONTEXT.md) — glossary
-- [docs/skills-charter.md](./docs/skills-charter.md) — skill boundaries (source of truth)
+- [docs/skills-charter.md](./docs/skills-charter.md) — skill boundaries
 - [docs/vault-layout.md](./docs/vault-layout.md) — vault paths
+- [docs/plan-alignment.md](./docs/plan-alignment.md) — design vs status
 - [docs/adr/](./docs/adr/) — decisions
 
 ## Skills (1–12)
@@ -35,15 +36,18 @@ Install via this repo’s `skills/` (Cursor: `.cursor/skills` junctions).
 3. Put module text in `modules/<id>/source/`, then analyze → optional localize → handout-art → live-aid → play → notes → recap → publish.
 
 ```bash
+# Empty vault shells
+node scripts/setup_vault.mjs --vault examples/vault --module demo --campaign demo-table --session 002
+
 # Token from a portrait (optional Pillow)
 python scripts/make_token.py examples/vault/modules/lantern-on-the-pier/assets/portraits/chen-wei.png --name "Chen Wei" --border "#334455"
 
 # Prompt Packs → stub assets (or set TRPG_IMAGE_API_URL)
 python scripts/generate_assets.py --module examples/vault/modules/lantern-on-the-pier
 
-# Build Session Archive + Campaign Hub
+# Build Session Archive pages + Campaign Hub
 cd archive && npm install && npm run build
-# Hub: archive/dist/hub/index.html
+# Hub: /hub/ · Session: /sessions/001/ · PC: /pcs/maya/
 ```
 
 ## Example vault

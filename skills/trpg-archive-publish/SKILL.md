@@ -18,9 +18,9 @@ description: >
 ## Steps
 
 1. Write `archive-manifest.yaml` using `contracts/archive-manifest.example.yaml` as schema guide.
-2. Copy or link player-facing markdown into the Archive app content path (see `archive/README.md`), excluding Keep Appendix.
+2. Copy or link player-facing markdown via `archive` sync (`npm run sync` scans all sessions); each Session Archive is served at `/sessions/<id>/`. Campaign Hub is `/hub/` (see `trpg-campaign-hub`).
 3. Run from repo: `cd archive && npm install && npm run build` (or `npm run dev` for preview).
-4. Report output directory and remind GM of rights for `public` mode.
+4. Report output paths (`/hub/`, `/sessions/<id>/`) and remind GM of rights for `public` mode.
 
 ## Hard rules
 

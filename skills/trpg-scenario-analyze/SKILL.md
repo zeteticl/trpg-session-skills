@@ -11,11 +11,10 @@ description: >
 
 Charter §3. Layout: `docs/vault-layout.md`. System pack: `systems/<system>/`.
 
-## Inputs
+## When you start
 
-- Vault Root + `module-id`
-- Source: `modules/<id>/source/scenario.*.md` (GM-attached text may be saved here first)
-- Active system pack (`module.yaml` → `system`)
+Usually after `/trpg-campaign-setup` left `modules/<id>/source/scenario.*.md` in place.
+If the GM is still in a setup chat, they should have been told to run **this** skill explicitly — Cursor does not auto-chain skills.
 
 ## Writes (only these)
 

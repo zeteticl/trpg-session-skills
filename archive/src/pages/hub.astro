@@ -2,11 +2,41 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const hubDir = path.join(process.cwd(), "src/data/hub");
-const boardPath = path.join(hubDir, "clue-board.md");
-const recapPath = path.join(hubDir, "session-001-recap.md");
-const board = fs.existsSync(boardPath) ? fs.readFileSync(boardPath, "utf8") : "_Run npm run sync:hub_";
-const recap = fs.existsSync(recapPath) ? fs.readFileSync(recapPath, "utf8") : "";
+const hubPath = path.join(process.cwd(), "src/data/hub/hub.json");
+const hub = fs.existsSync(hubPath)
+  ? JSON.parse(fs.readFileSync(hubPath, "utf8"))
+  : { campaign_id: "?", sessions: [], pcs: [], clues: [] };
+
+const ui = {
+  "zh-Hant": {
+    title: "團錄總站",
+    subtitle: "多團入口 · 線索看板 · 角色",
+    sessions: "各團 Archive",
+    clues: "未解線索看板",
+    characters: "角色",
+    open: "未解",
+    archive: "打開 Archive",
+    emptySessions: "尚無 Session",
+    emptyClues: "目前沒有未解線索",
+    emptyPcs: "尚無角色頁",
+    langPeer: "English",
+    langPeerHref: "/hub/?lang=en",
+  },
+  en: {
+    title: "Campaign Hub",
+    subtitle: "Sessions · clue board · characters",
+    sessions: "Session Archives",
+    clues: "Unresolved clue board",
+    characters: "Characters",
+    open: "open",
+    archive: "Open Archive",
+    emptySessions: "No sessions yet",
+    emptyClues: "No open clues",
+    emptyPcs: "No character pages",
+    langPeer: "繁中",
+    langPeerHref: "/hub/?lang=zh-Hant",
+  },
+};
 ---
 
 <html lang="zh-Hant">
@@ -20,6 +50,7 @@ const recap = fs.existsSync(recapPath) ? fs.readFileSync(recapPath, "utf8") : ""
         --fg: #e8eef2;
         --muted: #9aa8b5;
         --accent: #8fb39a;
+        --card: rgba(0, 0, 0, 0.28);
       }
       body {
         margin: 0;
@@ -31,30 +62,150 @@ const recap = fs.existsSync(recapPath) ? fs.readFileSync(recapPath, "utf8") : ""
         line-height: 1.55;
       }
       main {
-        max-width: 44rem;
+        max-width: 46rem;
         margin: 0 auto;
         padding: 2.5rem 1.25rem 4rem;
       }
       a { color: var(--accent); }
-      .meta { color: var(--muted); margin-bottom: 1.5rem; }
-      pre {
-        white-space: pre-wrap;
-        font-family: inherit;
-        background: rgba(0, 0, 0, 0.28);
-        padding: 1rem 1.1rem;
-        border-left: 3px solid var(--accent);
+      .meta { color: var(--muted); margin-bottom: 1.75rem; }
+      h1 { margin: 0 0 0.35rem; font-weight: 600; }
+      h2 {
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.15rem;
+        color: var(--accent);
       }
-      h2 { margin-top: 2rem; font-size: 1.15rem; color: var(--accent); }
+      ul { padding-left: 1.1rem; }
+      .card {
+        background: var(--card);
+        border-left: 3px solid var(--accent);
+        padding: 0.85rem 1rem;
+        margin: 0.55rem 0;
+      }
+      .card strong { display: block; }
+      .muted { color: var(--muted); font-size: 0.92rem; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+      th, td {
+        text-align: left;
+        padding: 0.45rem 0.35rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        vertical-align: top;
+      }
+      th { color: var(--muted); font-weight: 600; }
+      .lang { float: right; }
+      [data-lang="en"] { display: none; }
     </style>
+    <script is:inline>
+      (function () {
+        var lang = new URLSearchParams(location.search).get("lang") || "zh-Hant";
+        if (lang !== "en" && lang !== "zh-Hant") lang = "zh-Hant";
+        document.documentElement.lang = lang === "en" ? "en" : "zh-Hant";
+        document.documentElement.dataset.uiLang = lang;
+        window.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("[data-lang]").forEach(function (el) {
+            el.style.display = el.getAttribute("data-lang") === lang ? "" : "none";
+          });
+        });
+      })();
+    </script>
   </head>
   <body>
     <main>
-      <h1>Campaign Hub</h1>
-      <p class="meta">demo-table · multi-session entry · <a href="/">Session Archive</a></p>
-      <h2>Clue board</h2>
-      <pre>{board}</pre>
-      <h2>Session 001 recap</h2>
-      <pre>{recap}</pre>
+      <div data-lang="zh-Hant">
+        <a class="lang" href={ui.en.langPeerHref}>{ui["zh-Hant"].langPeer}</a>
+        <h1>{ui["zh-Hant"].title}</h1>
+        <p class="meta">{hub.campaign_id} · {ui["zh-Hant"].subtitle}</p>
+      </div>
+      <div data-lang="en">
+        <a class="lang" href={ui["zh-Hant"].langPeerHref}>{ui.en.langPeer}</a>
+        <h1>{ui.en.title}</h1>
+        <p class="meta">{hub.campaign_id} · {ui.en.subtitle}</p>
+      </div>
+
+      <h2 data-lang="zh-Hant">{ui["zh-Hant"].sessions}</h2>
+      <h2 data-lang="en">{ui.en.sessions}</h2>
+      {hub.sessions?.length ? (
+        hub.sessions.map((s) => (
+          <div class="card">
+            <strong>
+              <span data-lang="zh-Hant">{s.title?.["zh-Hant"] || s.id}</span>
+              <span data-lang="en">{s.title?.en || s.id}</span>
+            </strong>
+            <span class="muted">#{s.id} · {s.publish_mode}</span>
+            <div>
+              <a href={s.href}>
+                <span data-lang="zh-Hant">{ui["zh-Hant"].archive}</span>
+                <span data-lang="en">{ui.en.archive}</span>
+              </a>
+            </div>
+          </div>
+        ))
+      ) : (
+        <>
+          <p class="muted" data-lang="zh-Hant">{ui["zh-Hant"].emptySessions}</p>
+          <p class="muted" data-lang="en">{ui.en.emptySessions}</p>
+        </>
+      )}
+
+      <h2 data-lang="zh-Hant">{ui["zh-Hant"].clues}</h2>
+      <h2 data-lang="en">{ui.en.clues}</h2>
+      {hub.clues?.length ? (
+        <table>
+          <thead>
+            <tr>
+              <th>Session</th>
+              <th>
+                <span data-lang="zh-Hant">線索</span>
+                <span data-lang="en">Clue</span>
+              </th>
+              <th>
+                <span data-lang="zh-Hant">{ui["zh-Hant"].open}</span>
+                <span data-lang="en">{ui.en.open}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {hub.clues.map((c) => (
+              <tr>
+                <td>
+                  <a href={`/sessions/${c.session_id}/`}>{c.session_id}</a>
+                </td>
+                <td>{c.text}</td>
+                <td>{c.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <>
+          <p class="muted" data-lang="zh-Hant">{ui["zh-Hant"].emptyClues}</p>
+          <p class="muted" data-lang="en">{ui.en.emptyClues}</p>
+        </>
+      )}
+
+      <h2 data-lang="zh-Hant">{ui["zh-Hant"].characters}</h2>
+      <h2 data-lang="en">{ui.en.characters}</h2>
+      {hub.pcs?.length ? (
+        hub.pcs.map((p) => (
+          <div class="card">
+            <strong>
+              <a href={p.href}>
+                <span data-lang="zh-Hant">{p.title?.["zh-Hant"] || p.id}</span>
+                <span data-lang="en">{p.title?.en || p.id}</span>
+              </a>
+            </strong>
+          </div>
+        ))
+      ) : (
+        <>
+          <p class="muted" data-lang="zh-Hant">{ui["zh-Hant"].emptyPcs}</p>
+          <p class="muted" data-lang="en">{ui.en.emptyPcs}</p>
+        </>
+      )}
     </main>
   </body>
 </html>

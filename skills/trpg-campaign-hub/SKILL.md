@@ -19,8 +19,9 @@ Charter §12.
 
 1. Write `campaigns/<id>/hub/hub-manifest.yaml` listing sessions, locales, publish_mode aggregate.
 2. Aggregate unresolved clues into `campaigns/<id>/hub/clue-board.md`.
-3. Sync into Astro hub route: `cd archive && npm run sync:hub && npm run build`
+3. Sync into Astro via `cd archive && npm run sync && npm run build` (scans all `sessions/*` and `pcs/*`, builds `/hub`, `/sessions/<id>/`, `/pcs/<id>/`).
 4. Player site must not include any `keep-appendix.md`.
+5. Hub must list every session with a link to its Archive page, show an aggregated clue board, character pages when `pcs/` exists, and bilingual UI (`?lang=zh-Hant|en`).
 
 ## Hard rules
 
