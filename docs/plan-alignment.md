@@ -10,6 +10,7 @@ Settled design vs repo status. Update when a decision changes.
 | Human lists in Markdown; YAML only for machine manifests | Done | `docs/formats.md` |
 | Peer-pattern strengthens (visibility, clues≥2, handoff, diegetic handouts) | Done | `docs/strengthen-from-peers.md` + analyze/live-aid/recap/handout-art |
 | Every skill ends with an explicit next-step recommendation | Done | `docs/next-steps.md` + all `skills/*/SKILL.md` |
+| Auto-rename placeholder folders to human-readable 劇本名 (`_` not spaces; optional code) | Done | `setup_vault.mjs --rename-defaults` + setup skill Phase D |
 | Module + Campaign + Embedded Module | Done (layout); Embedded example optional | `docs/vault-layout.md`, setup skill |
 | Session Archive = usable MVP | Done | `/sessions/<id>/` |
 | Campaign Hub = upgrade home | Done | `/hub/`, `/pcs/<id>/` |
