@@ -1,0 +1,15 @@
+{
+  "name": "trpg-session-archive",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-example.mjs",
+    "sync:hub": "node scripts/sync-hub.mjs",
+    "dev": "npm run sync && npm run sync:hub && astro dev",
+    "build": "npm run sync && npm run sync:hub && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.1.0"
+  }
+}

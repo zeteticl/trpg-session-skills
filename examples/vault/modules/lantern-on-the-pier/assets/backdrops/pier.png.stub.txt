@@ -1,0 +1,3 @@
+Stub for pier.png
+Prompt pack: examples\vault\modules\lantern-on-the-pier\assets\prompts\backdrop-pier.md
+Set TRPG_IMAGE_API_URL to enable real generation.

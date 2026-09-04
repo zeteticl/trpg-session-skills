@@ -1,0 +1,23 @@
+# archive-manifest/v1
+
+Versioned shape for one Session Archive. Consumed by `trpg-archive-publish` and adapters.
+
+```yaml
+schema: archive-manifest/v1
+campaign_id: demo-table
+session_id: "001"
+module_ids: [lantern-on-the-pier]
+publish_mode: players   # players | public
+locales: [zh-Hant, en]
+title:
+  zh-Hant: 碼頭燈籠 · 第一團
+  en: Lantern on the Pier · Session 1
+paths:
+  recap: recap.md
+  unresolved_clues: unresolved-clues.md
+  media_dir: media/
+  keep_appendix: keep-appendix.md  # never copy into player site
+site:
+  generator: astro
+  out_dir: ../../../../../archive/dist/demo-table/001
+```

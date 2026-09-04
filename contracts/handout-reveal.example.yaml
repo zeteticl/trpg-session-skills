@@ -1,0 +1,15 @@
+# handout-reveal/v1
+
+```yaml
+schema: handout-reveal/v1
+session_id: "001"
+reveals:
+  - id: h-01
+    handout: newspaper-clipping
+    when: after-library-success
+    player_facing: true
+  - id: h-02
+    handout: pier-photo
+    when: search-locker
+    player_facing: true
+```

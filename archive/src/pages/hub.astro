@@ -1,0 +1,60 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+const hubDir = path.join(process.cwd(), "src/data/hub");
+const boardPath = path.join(hubDir, "clue-board.md");
+const recapPath = path.join(hubDir, "session-001-recap.md");
+const board = fs.existsSync(boardPath) ? fs.readFileSync(boardPath, "utf8") : "_Run npm run sync:hub_";
+const recap = fs.existsSync(recapPath) ? fs.readFileSync(recapPath, "utf8") : "";
+---
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campaign Hub</title>
+    <style>
+      :root {
+        --bg: #14181c;
+        --fg: #e8eef2;
+        --muted: #9aa8b5;
+        --accent: #8fb39a;
+      }
+      body {
+        margin: 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        background:
+          radial-gradient(900px 500px at 90% 0%, #1e2a24 0%, transparent 55%),
+          var(--bg);
+        color: var(--fg);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      a { color: var(--accent); }
+      .meta { color: var(--muted); margin-bottom: 1.5rem; }
+      pre {
+        white-space: pre-wrap;
+        font-family: inherit;
+        background: rgba(0, 0, 0, 0.28);
+        padding: 1rem 1.1rem;
+        border-left: 3px solid var(--accent);
+      }
+      h2 { margin-top: 2rem; font-size: 1.15rem; color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Campaign Hub</h1>
+      <p class="meta">demo-table · multi-session entry · <a href="/">Session Archive</a></p>
+      <h2>Clue board</h2>
+      <pre>{board}</pre>
+      <h2>Session 001 recap</h2>
+      <pre>{recap}</pre>
+    </main>
+  </body>
+</html>

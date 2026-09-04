@@ -1,0 +1,11 @@
+schema: campaign-hub/v1
+campaign_id: demo-table
+locales: [zh-Hant, en]
+sessions:
+  - id: "001"
+    title:
+      zh-Hant: 碼頭燈籠 · 第一團
+      en: Lantern on the Pier · Session 1
+    recap: ../sessions/001/recap.md
+    unresolved_clues: ../sessions/001/unresolved-clues.md
+pcs: []

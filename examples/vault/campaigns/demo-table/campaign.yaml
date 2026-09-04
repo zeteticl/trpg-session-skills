@@ -1,0 +1,5 @@
+id: demo-table
+system: coc7
+title: Demo Harbor Table
+modules: [lantern-on-the-pier]
+locales: [zh-Hant, en]

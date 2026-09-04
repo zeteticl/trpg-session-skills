@@ -1,0 +1,76 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+const contentDir = path.join(process.cwd(), "src/data/session");
+const recapPath = path.join(contentDir, "recap.md");
+const cluesPath = path.join(contentDir, "unresolved-clues.md");
+const manifestPath = path.join(contentDir, "archive-manifest.yaml");
+
+const recap = fs.existsSync(recapPath) ? fs.readFileSync(recapPath, "utf8") : "_Run npm run sync_";
+const clues = fs.existsSync(cluesPath) ? fs.readFileSync(cluesPath, "utf8") : "";
+const manifest = fs.existsSync(manifestPath) ? fs.readFileSync(manifestPath, "utf8") : "";
+const mode = /publish_mode:\s*(\w+)/.exec(manifest)?.[1] ?? "players";
+---
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Session Archive</title>
+    <style>
+      :root {
+        --bg: #1a1f24;
+        --fg: #e8eef2;
+        --muted: #9aa8b5;
+        --accent: #6f9bb8;
+      }
+      body {
+        margin: 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        background:
+          radial-gradient(1200px 600px at 10% -10%, #243040 0%, transparent 50%),
+          var(--bg);
+        color: var(--fg);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      h1 {
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.25rem;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
+      pre {
+        white-space: pre-wrap;
+        font-family: inherit;
+        background: rgba(0, 0, 0, 0.25);
+        padding: 1rem 1.1rem;
+        border-left: 3px solid var(--accent);
+      }
+      h2 {
+        margin-top: 2rem;
+        font-size: 1.15rem;
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Session Archive</h1>
+      <p class="meta">Publish mode: {mode} · Player-facing only</p>
+      <h2>Recap</h2>
+      <pre>{recap}</pre>
+      <h2>Unresolved clues</h2>
+      <pre>{clues}</pre>
+    </main>
+  </body>
+</html>

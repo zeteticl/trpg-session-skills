@@ -1,0 +1,40 @@
+---
+name: trpg-router
+description: >
+  Route TRPG GM intent to the correct trpg-* skill without writing vault files.
+  Use when the user says 備團, 收團, 出圖, 翻譯, 開團表, 出站, setup vault, analyze module,
+  localize, handout art, live aid, recap, publish archive, or runs /trpg-router.
+  Do not use for actually preparing content — only dispatch.
+---
+
+# trpg-router
+
+Read `docs/skills-charter.md` if unsure about boundaries.
+
+## Job
+
+Classify the GM request and **invoke or instruct the next skill**. Write **no** Module/Campaign/Session files.
+
+## Routing table
+
+| Intent signals | Next skill |
+|----------------|------------|
+| 新 vault、建團、空殼、setup、scaffold | `trpg-campaign-setup` |
+| 拆劇本、備團結構、分析模組、6W、線索網 | `trpg-scenario-analyze` |
+| 翻譯、術語表、localize | `trpg-localize` |
+| 出圖 prompt、人像、背圖、handout 檔名 | `trpg-handout-art` |
+| 開團表、BGM 順序、揭示順序、live aid | `trpg-live-aid` |
+| 團摘要、收團、recap、未解線索 | `trpg-session-recap` |
+| 出站、Archive、publish | `trpg-archive-publish` |
+| 整理檔案、tidy、INDEX | `trpg-vault-tidy` |
+| 逐字稿整理、transcript | `trpg-session-transcribe` |
+| 真的出圖、image API | `trpg-asset-generate` |
+| 多團 Hub、clue board | `trpg-campaign-hub` |
+
+If multiple intents, order: setup → analyze → localize → handout-art → live-aid → recap → publish.
+
+## Response shape
+
+1. One line: chosen skill + why.
+2. Tell the agent (or user) to load that skill next.
+3. Stop. Do not start the work yourself.
