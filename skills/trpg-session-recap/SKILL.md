@@ -19,9 +19,11 @@ description: >
 - `unresolved-clues.md`
 - Brief next-session hooks inside recap or `hooks.md`
 - PC changes **only** if stated in notes/transcript
+- **`## Carry-forward`** (required): open clues, NPC attitude shifts, DRAFT entities to confirm, suggested focus for next `/trpg-live-aid` or re-analyze
 
 ## Hard rules
 
 - No fabrication. If unclear, list questions for the GM under `## Open questions`.
 - Do not run Astro / write `archive-manifest.yaml` (hand off to `trpg-archive-publish`).
 - Do not run STT; accept external transcript only.
+- Tag uncertain new canon as `DRAFT` until GM confirms.

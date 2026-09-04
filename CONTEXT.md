@@ -152,9 +152,9 @@ _Avoid_: shipping hosted bot code in this Toolkit Repo
 
 ### Vault binding
 
-**Vault Root**:
-The filesystem root of a Campaign Vault that skills and scripts operate on. Configured per Keep (path argument or env); not assumed to be this Toolkit Repo. The Toolkit Repo may ship an `examples/` vault for demos.
-_Avoid_: storing the Keep's real Campaign data inside the Toolkit Repo by default
+**Source Page**:
+The PDF or print page number in the Module that a prep item, Live Aid line, or Prompt Pack refers to. Written as `（劇本 p.N）`, table **Page** column, or YAML `source_page`. Unknown pages use `p.?` — never invented.
+_Avoid_: omitting cites on concrete playable items when the source is paginated
 
 ### Art pipeline (MVP)
 
@@ -176,20 +176,20 @@ _Avoid_: analysis, translation, art prompts, recap text
 _Formerly_: trpg-campaign-scaffold
 
 **Analyze Skill** (`trpg-scenario-analyze`):
-Writes the Module prep structure pack from Module source: pacing, structure, 6W, core story and endings, background, timeline and events, reference reading, character analysis/intros, locations, GM and player tips, clues, NPCs, module-level BGM suggestions, system nodes, strategy tables, appendices, and scenario-specific systems.
-_Avoid_: translation, Prompt Packs, Session Notes, site build, session-night BGM run sheets (Live Aid)
+Writes the Module prep structure pack from Module source: pacing, structure, 6W, core story and endings, background, timeline and events, reference reading, character analysis/intros, locations, GM and player tips, clues, NPCs, module-level BGM suggestions, system nodes, strategy tables, appendices, and scenario-specific systems. Each concrete playable item cites a **Source Page** (`（劇本 p.N）`).
+_Avoid_: translation, Prompt Packs, Session Notes, site build, session-night BGM run sheets (Live Aid); inventing page numbers
 
 **Localize Skill** (`trpg-localize`):
-Writes localized Module text and glossary entries for Personal Prep Localization.
-_Avoid_: redrawing the prep structure pack, publishing Archives
+Writes localized Module text and glossary entries for Personal Prep Localization. Preserves PDF page anchors in source.
+_Avoid_: redrawing the prep structure pack, publishing Archives; stripping `<!-- PDF p.N -->` markers
 
 **Handout Art Skill** (`trpg-handout-art`):
-Writes Prompt Packs and asset path stubs for Portrait, Backdrop, Handout.
-_Avoid_: Token cropping (script), BGM selection, image API calls in MVP
+Writes Prompt Packs and asset path stubs for Portrait, Backdrop, Handout, each with a Source Page cite.
+_Avoid_: Token cropping (script), BGM selection, image API calls in MVP; inventing page numbers
 
 **Live Aid Skill** (`trpg-live-aid`):
-Writes the Session run sheet: tonight's BGM Cue order, Handout reveal order, scene switches.
-_Avoid_: dice, NPC voice, post-session recap, site build; owning module-level BGM catalog (Analyze)
+Writes one Session run sheet Markdown file (`live-aid.md`): tonight's scene order, BGM cues, and Handout reveals — each with a Source Page cite. No parallel YAML run sheets.
+_Avoid_: dice, NPC voice, post-session recap, site build; owning module-level BGM catalog (Analyze); bgm-cues.yaml / handout-reveals.yaml
 
 **Recap Skill** (`trpg-session-recap`):
 Writes Session recap markdown and unresolved-clue updates from Session Notes ± Transcript.

@@ -15,7 +15,7 @@ description: >
 
 ## Writes
 
-Under `assets/prompts/`, one markdown or yaml pack per asset, plus an index `assets/prompts/INDEX.md`.
+Under `assets/prompts/`, one **Markdown** pack per asset, plus an index `assets/prompts/INDEX.md`.
 
 Naming:
 
@@ -23,7 +23,12 @@ Naming:
 - Backdrop: `backdrop-<slug>.md`
 - Handout: `handout-<slug>.md`
 
-Each pack includes: target path (`assets/portraits|backdrops|handouts/<file>.png`), bilingual prompt text, negative cues, aspect ratio note.
+Each pack includes:
+
+- target path (`assets/portraits|backdrops|handouts/<file>.png`)
+- bilingual prompt text, negative cues, aspect ratio note
+- **`（劇本 p.N）`** for the NPC, location, or handout in the module
+- Optional **diegetic reveal line** (player-facing): e.g. 「剪報邊緣已經發黃，標題下有幾行字……」— never GM-only secrets
 
 ## Hard rules
 
@@ -31,3 +36,5 @@ Each pack includes: target path (`assets/portraits|backdrops|handouts/<file>.png
 - Do not crop Tokens — tell GM to run `python scripts/make_token.py …`.
 - Do not curate or order BGM.
 - Do not write prep analysis or recap.
+- Do not invent page numbers; use `p.?` if prep/source lacks a cite.
+- Do not put SAN numbers, solutions, or unrevealed identities into diegetic lines.

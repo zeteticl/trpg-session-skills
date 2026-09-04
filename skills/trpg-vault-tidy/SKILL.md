@@ -21,6 +21,7 @@ Make the Vault Root findable and conventional. **No new narrative content.**
 3. Propose a move/rename plan; if GM already approved tidy, apply moves.
 4. Rewrite `<vault>/INDEX.md` listing modules and campaigns with ids and titles from yaml when present.
 5. Report what moved and what is still missing (hand off gaps: empty `source/` → setup/analyze; empty notes → GM; etc.).
+6. If the GM brings **old** notes/PDF/transcripts to sort: interview lightly (what campaign? which session?) then classify into vault paths — do not invent what happened (peer: vault-ingest pattern). Hand narrative recovery to `trpg-session-recap` / analyze as needed.
 
 ## Hard rules
 

@@ -1,16 +1,16 @@
 {
   "adapter": "hktrpg-discord-stub",
-  "source_schema": "bgm-cue-list/v1",
+  "source": "live-aid.md tables",
   "messages": [
     {
       "type": "embed",
-      "title": "BGM Cue cue-01",
-      "description": "when: session-start\ntrack: Harbor Fog (curated)\nSoft loop under briefing"
+      "title": "BGM · session-start",
+      "description": "when: session-start\ntrack: Harbor Fog\npage: p.3\nSoft loop under briefing"
     },
     {
       "type": "embed",
-      "title": "BGM Cue cue-03",
-      "description": "when: mythos-hint\ntrack: silence\nCut music on the wrong lantern reveal"
+      "title": "BGM · mythos-hint",
+      "description": "when: mythos-hint\ntrack: silence\npage: p.8\nCut on wrongness beat"
     }
   ]
 }

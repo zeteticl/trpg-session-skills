@@ -11,13 +11,13 @@ description: >
 ## Inputs
 
 - Module source locale + target locale (default target `zh-Hant` or `en` as asked)
-- Existing `glossary.yaml` if any
+- Existing `glossary.md` if any
 - System pack glossary seeds (`systems/coc7/README.md`)
 
 ## Writes
 
 1. Translated source file, e.g. `source/scenario.zh-Hant.md` or `source/scenario.en.md`
-2. Updated `glossary.yaml` (term, source_lang, target_lang, notes)
+2. Updated `glossary.md` (Markdown table: term | source | target | notes)
 3. Remind in the chat (and optionally `source/LOCALIZATION_NOTICE.md`):
 
 > Personal prep only. Default Archive publish mode is `players`. Do not treat full copyrighted module text as a public redistribute-able product. GM is responsible for rights.
@@ -27,3 +27,4 @@ description: >
 - Do not rewrite `prep/` structure files (if understanding of structure changes, hand off to `trpg-scenario-analyze` on the translated text).
 - Do not publish sites.
 - Keep official rules keywords in English beside glosses when using CoC pack.
+- **Preserve** `<!-- PDF p.N -->` (and similar) page anchors when translating — never strip pagination markers.

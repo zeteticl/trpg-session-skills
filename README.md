@@ -8,6 +8,9 @@ Human GM (Keep) toolkit: prepare a Module, run light Live Aid, recap a Session, 
 - [docs/skills-charter.md](./docs/skills-charter.md) — skill boundaries
 - [docs/vault-layout.md](./docs/vault-layout.md) — vault paths
 - [docs/plan-alignment.md](./docs/plan-alignment.md) — design vs status
+- [docs/source-citations.md](./docs/source-citations.md) — 劇本頁碼標註
+- [docs/formats.md](./docs/formats.md) — MD 為主；YAML 僅機器用
+- [docs/strengthen-from-peers.md](./docs/strengthen-from-peers.md) — 對齊外部專案可偷什麼
 - [docs/adr/](./docs/adr/) — decisions
 
 ## Skills (1–12)

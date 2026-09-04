@@ -31,8 +31,7 @@ const SESSION_ALLOW = [
 
 const EXPORT_FILES = [
   "archive-manifest.yaml",
-  "bgm-cues.yaml",
-  "handout-reveals.yaml",
+  "live-aid.md",
 ];
 
 function read(p) {

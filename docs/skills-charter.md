@@ -45,7 +45,7 @@ GM 附上 Module 正文。Analyze 讀正文，寫出備團用的完整結構包�
 - 附錄與參考資料  
 - 劇本特殊系統  
 
-它回答的是「桌上怎麼推進」，不是「怎麼譯」或「長什麼樣」。不寫 Session Notes，不寫繪圖 Prompt Pack。只換語言用 localize；結構或正文理解變了，才再跑 analyze。
+它回答的是「桌上怎麼推進」，不是「怎麼譯」或「長什麼樣」。**每一個可上桌條目都要標劇本頁碼**（`（劇本 p.N）`；無則 `p.?`，禁止瞎編）。不寫 Session Notes，不寫繪圖 Prompt Pack。只換語言用 localize；結構或正文理解變了，才再跑 analyze。
 
 ---
 
@@ -67,9 +67,9 @@ GM 附上 Module 正文。Analyze 讀正文，寫出備團用的完整結構包�
 
 ## 6. trpg-live-aid — 開團 GM 眼前那張表
 
-為即將或正在進行的 Session 整理 run sheet：BGM 何時切、Handout 何時揭示、場景何時換。給人主持用，不是 AI 守秘人：不代骰、不代扮 NPC。
+為即將或正在進行的 Session 整理 run sheet：BGM 何時切、Handout 何時揭示、場景何時換；**每一列標註劇本頁碼**，方便開團時翻書。給人主持用，不是 AI 守秘人：不代骰、不代扮 NPC。
 
-這裡的 BGM 是「今晚操作順序」；模組裡有哪些建議曲目與場合，已由 analyze 寫在備團結構裡。團後發生什麼要等 Session Notes，再交給 recap。
+這裡的開團表**只寫一份** `live-aid.md`（切場／BGM／handout 都用 MD 表格）；不要另建 yaml 操作單。BGM 是「今晚操作順序」；模組層曲目建議在 analyze 的 `prep/11-bgm.md`。團後交給 recap。
 
 ---
 

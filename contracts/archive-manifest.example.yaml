@@ -1,6 +1,6 @@
 # archive-manifest/v1
 
-Versioned shape for one Session Archive. Consumed by `trpg-archive-publish` and adapters.
+**Special-purpose YAML** (site generator). GM-facing lists stay in Markdown — see `docs/formats.md`.
 
 ```yaml
 schema: archive-manifest/v1

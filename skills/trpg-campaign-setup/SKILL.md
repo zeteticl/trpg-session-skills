@@ -86,8 +86,8 @@ Then branch gently:
 
 | They say | You do (and then **STOP**) |
 |----------|----------------------------|
-| 有 PDF／DOCX | Place/copy the file under `modules/starter-module/source/` if needed. Extract personal-prep text into `source/scenario.zh-Hant.md` (or `.en.md`). Show the redistribution warning. |
-| 只有文字／構想 | Help them save paste into `source/scenario.zh-Hant.md`. |
+| 有 PDF／DOCX | Place/copy under `modules/starter-module/source/`. Extract into `source/scenario.zh-Hant.md` (or `.en.md`) **with page anchors** `<!-- PDF p.N -->` between pages (see `docs/source-citations.md`). Show the redistribution warning. |
+| 只有文字／構想 | Help them save paste into `source/scenario.zh-Hant.md`. If they know print pages, they may add anchors; otherwise pages stay `p.?` later. |
 | 暫時沒有 | Stop. Say the folders are ready whenever they are. **End turn.** |
 
 ### Mandatory handoff (do not skip)

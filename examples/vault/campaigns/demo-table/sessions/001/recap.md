@@ -7,3 +7,10 @@
 ## en
 
 Investigators heard Ah-Sing’s account, recovered the twelve-year-old clipping, and found the pier photo with its warning. Tide marks remain unread. Next session likely takes the lantern down. Maya spent 1 Luck on the locker.
+
+## Carry-forward
+
+- Open clues: C3 tide marks unread; ending not locked
+- NPC: Ah-Sing still evasive on family map
+- DRAFT: none
+- Next `/trpg-live-aid` focus: lantern-down ending beat + decode marks（劇本 p.8–9）

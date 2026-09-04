@@ -27,3 +27,4 @@ description: >
 - Do not rewrite recap wording; fix only broken links/paths if required for build.
 - Do not start Discord/HKTRPG bots; point at `adapters/hktrpg/` stubs only.
 - Multi-session Hub is not this skill.
+- Never publish `keep-appendix.md` or GM-only prep blocks into player pages.
