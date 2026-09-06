@@ -31,7 +31,7 @@ Classify the GM request and **invoke or instruct the next skill**. Write **no** 
 | 真的出圖、image API | `trpg-asset-generate` |
 | 多團 Hub、clue board | `trpg-campaign-hub` |
 
-If multiple intents, order: setup → analyze → localize → handout-art → live-aid → recap → publish.
+If multiple intents, order: setup → analyze → localize → live-aid → handout-art → recap → publish.
 
 ## Response shape
 

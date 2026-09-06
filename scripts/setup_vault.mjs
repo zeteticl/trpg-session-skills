@@ -63,13 +63,18 @@ function parseArgs(argv) {
 
 /**
  * Human-readable folder name (劇本名), not a URL slug.
- * Spaces → `_`. Only strips filesystem-illegal characters; keeps CJK and normal punctuation.
+ * Spaces → `_`. Strip title brackets. Insert `_` between CJK and Latin/digit runs.
  */
 function humanFolderName(raw) {
   if (!raw || !String(raw).trim()) return "";
   let s = String(raw).normalize("NFKC").trim();
   s = path.basename(s);
   s = s.replace(/\.(pdf|docx?|md|txt|rtf)$/i, "");
+  // Book-title / quote brackets (not path separators)
+  s = s.replace(/[《》〈〉「」『』\[\]]/g, "");
+  // CJK glued to Latin/digits → insert underscore (蠕蟲災變Vermis → 蠕蟲災變_Vermis)
+  s = s.replace(/([\u3400-\u9FFF])([A-Za-z0-9])/g, "$1_$2");
+  s = s.replace(/([A-Za-z0-9])([\u3400-\u9FFF])/g, "$1_$2");
   s = s.replace(/[\s_]+/g, "_");
   // Windows-illegal + controls
   s = s.replace(/[<>:"/\\|?*\u0000-\u001f]/g, "");
@@ -170,18 +175,21 @@ function renameDefaults(vault, opts) {
 
   const titleHint = (opts.title || "").trim();
   const fromDisplay = displayTitleFromFile(opts.fromFile);
+  const titleDisplay = humanFolderName(opts.title || "").replace(/_/g, " ");
   const zh =
-    titleHint && /[\u3400-\u9FFF]/.test(titleHint)
-      ? titleHint
+    titleDisplay && /[\u3400-\u9FFF]/.test(titleDisplay)
+      ? titleDisplay
       : /[\u3400-\u9FFF]/.test(moduleId)
-        ? moduleId
+        ? moduleId.replace(/_/g, " ")
         : "";
   const en =
     titleHint && /[A-Za-z]/.test(titleHint) && !/[\u3400-\u9FFF]/.test(titleHint)
-      ? titleHint
+      ? titleHint.replace(/[《》〈〉「」『』\[\]]/g, "").trim()
       : fromDisplay && /[A-Za-z]/.test(fromDisplay)
         ? fromDisplay
-        : "";
+        : /[A-Za-z]/.test(moduleId)
+          ? moduleId.replace(/_/g, " ").replace(/[\u3400-\u9FFF]+/g, "").trim()
+          : "";
 
   const idYaml = (id) => yamlScalar(id);
 

@@ -16,6 +16,23 @@ Charter §3. Layout: `docs/vault-layout.md`. System pack: `systems/<system>/`.
 Usually after `/trpg-campaign-setup` left `modules/<id>/source/scenario.*.md` in place.
 If the GM is still in a setup chat, they should have been told to run **this** skill explicitly — Cursor does not auto-chain skills.
 
+### Gate: source must exist (required)
+
+Before writing any `prep/` file:
+
+1. Resolve Vault Root + module folder (not still `starter-module` unless that is intentional and already has source).
+2. Confirm `modules/<id>/source/scenario.*.md` exists (prefer files with `<!-- PDF p.N -->`).
+
+If source is **missing** (GM attached a PDF, placeholders still `starter-module` / `my-table`, or empty `source/`):
+
+- **Do not** rename folders, extract PDF, or write `prep/00`–`15`.
+- Stop and hand off:
+
+> 還沒有 `source/scenario.*.md`。請先執行 `/trpg-campaign-setup`（或回覆 setup「用這份 PDF」）完成改名與抽文，再執行 `/trpg-scenario-analyze`。  
+> Skills **不會**自動串接。
+
+Ingest (rename + extract) belongs to setup only.
+
 ## Inputs
 
 - Vault Root + `module-id`
@@ -104,14 +121,15 @@ New NPCs/locations invented or uncertain → tag `DRAFT` until the GM accepts; d
 
 - Answer “how does this play at the table”, not “how to translate” or “how to draw”.
 - No Session Notes, no Prompt Packs, no Archive site.
+- Do not rename vault placeholders or extract PDF/DOCX — that is `trpg-campaign-setup`.
 - After structural change to source, re-run this skill; locale-only changes → `trpg-localize`.
 
 ## Next step (required)
 
 End every successful analyze turn with:
 
-> **下一步（建議）：** `/trpg-handout-art` — 寫人像／背圖／講義 Prompt Pack（含頁碼與揭示台詞）。  
-> **也可以：** `/trpg-live-aid`（今晚就要開）／`/trpg-localize`（還要譯）／草稿很多時先請 GM 確認 `DRAFT`。  
+> **下一步（建議）：** `/trpg-live-aid` — 先訂今晚章節／開團表（切場／BGM／handout，含劇本頁）。  
+> **也可以：** `/trpg-handout-art`（先寫 Prompt Pack）／`/trpg-localize`（還要譯）／草稿很多時先請 GM 確認 `DRAFT`。  
 > Skills **不會**自動串接。
 
 If completeness checklist is mostly ❌: recommend fixing source pages or re-running analyze after GM answers gaps — still name the slash command.

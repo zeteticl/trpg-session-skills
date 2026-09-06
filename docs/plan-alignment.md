@@ -11,6 +11,10 @@ Settled design vs repo status. Update when a decision changes.
 | Peer-pattern strengthens (visibility, clues≥2, handoff, diegetic handouts) | Done | `docs/strengthen-from-peers.md` + analyze/live-aid/recap/handout-art |
 | Every skill ends with an explicit next-step recommendation | Done | `docs/next-steps.md` + all `skills/*/SKILL.md` |
 | Auto-rename placeholder folders to human-readable 劇本名 (`_` not spaces; optional code) | Done | `setup_vault.mjs --rename-defaults` + setup skill Phase D |
+| Setup detects vault-root PDF; clarifying turn ≠ analyze next-step | Done | `trpg-campaign-setup` Phase D |
+| Folder names: strip 《》; insert `_` between CJK and Latin | Done | `humanFolderName` in `setup_vault.mjs` |
+| Analyze refuses prep without source (ingest = setup only) | Done | `trpg-scenario-analyze` gate |
+| After analyze, primary next = live-aid (handout-art optional) | Done | `docs/next-steps.md` + analyze Next step |
 | Module + Campaign + Embedded Module | Done (layout); Embedded example optional | `docs/vault-layout.md`, setup skill |
 | Session Archive = usable MVP | Done | `/sessions/<id>/` |
 | Campaign Hub = upgrade home | Done | `/hub/`, `/pcs/<id>/` |
