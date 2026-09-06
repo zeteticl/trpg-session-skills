@@ -43,9 +43,15 @@ Formats: [formats.md](./formats.md) (Markdown by default). Site routes: [plan-al
       modules-embedded/
 ```
 
-## prep/ files (analyze owns)
+## prep/ files
 
-`00-overview.md` … `15-special-systems.md` — see `trpg-scenario-analyze` / charter §3.
+`00-overview.md` … `15-special-systems.md` — analyze owns (see `trpg-scenario-analyze` / charter §3).
+
+`16-setting-remap.md` — **setting-reskin owns** (only on Module Variant folders).
+
+## Module Variant
+
+Forked as `modules/<parent-id>-<variant-label>/` by `trpg-setting-reskin`. Parent Module is not modified. `module.yaml` should include `derived_from` and `variant_label`.
 
 ## Embedded Module
 

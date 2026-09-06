@@ -1,8 +1,8 @@
 # Skills Charter
 
-十二個 skill，各管一件事。本文是職責邊界的說明；短詞彙仍以 `CONTEXT.md` 為準。
+十三個 skill，各管一件事。本文是職責邊界的說明；短詞彙仍以 `CONTEXT.md` 為準。
 
-Skills 1–12 均已提供 SKILL.md。Token 裁切等腳本不算 skill。
+Skills 1–13 均已提供 SKILL.md。Token 裁切等腳本不算 skill。
 
 **每個 skill 結束時都必須引導「下一步」**（建議的 `/trpg-…` 指令＋一句原因）；skills **不會**自動串接。見 `docs/next-steps.md`。
 
@@ -115,6 +115,14 @@ GM 附上 Module 正文。Analyze 讀正文，寫出備團用的完整結構包�
 
 ---
 
+## 13. trpg-setting-reskin — 換皮另開變體（不改母模組）
+
+在 **已有** `prep/06-characters.md`、`10-npcs.md`、`04-timeline.md`、`07-locations.md`（皆非空）之後，依 Keep 的時代／地點／專有名詞決策，**複製**母模組為 Module Variant（`modules/<母id>-<標籤>/`），寫 `prep/16-setting-remap.md`，並在變體上統一替換 prep／glossary／prompts（`source/` 預設不改，除非 Keep 明示）。
+
+像 grilling 一樣問清楚再動檔；改人名時**必須推薦並詢問**分層命名：高貴線用少見／古老貴族姓；非高貴用系統化系列名（季節、數字、顏色、方位等）。不做翻譯（localize）、不補齊缺表（回 analyze）、不原地改寫母模組。Campaign 是否改掛變體要問一句才改。
+
+---
+
 ## 產物所有權（防踩線）
 
 | 產物 | 唯一寫入者 |
@@ -130,4 +138,5 @@ GM 附上 Module 正文。Analyze 讀正文，寫出備團用的完整結構包�
 | 多團 Hub 站 | campaign-hub |
 | 僅搬檔／INDEX | vault-tidy |
 | 依 Prompt Pack 寫出的資源檔 | asset-generate |
+| Module Variant 目錄＋`prep/16-setting-remap.md`＋變體內統一改名 | setting-reskin |
 | Token PNG＋token.json | 腳本（非 skill） |

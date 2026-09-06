@@ -118,6 +118,10 @@ _Avoid_: one flat folder with mixed Module and Campaign files
 A Module copied or authored inside a Campaign for one-shots when reuse is not required. Still shaped like a Module package so it can be extracted later.
 _Avoid_: ad-hoc `01-scenario/` dumps with no Module manifest
 
+**Module Variant**:
+A forked Module directory derived from a parent Module for a different era, place frame, and/or unified proper-name set (e.g. `modules/<parent-id>-現代香港/`). The parent Module stays unchanged. Owned by the Setting Reskin Skill; mapping lives in `prep/16-setting-remap.md`.
+_Avoid_: overwriting the parent Module in place; treating localization (language) as the same job as setting reskin
+
 ### Token pipeline
 
 **Token Spec**:
@@ -181,7 +185,11 @@ _Avoid_: translation, Prompt Packs, Session Notes, site build, session-night BGM
 
 **Localize Skill** (`trpg-localize`):
 Writes localized Module text and glossary entries for Personal Prep Localization. Preserves PDF page anchors in source.
-_Avoid_: redrawing the prep structure pack, publishing Archives; stripping `<!-- PDF p.N -->` markers
+_Avoid_: redrawing the prep structure pack, publishing Archives; stripping `<!-- PDF p.N -->` markers; Module Variant setting/name remaps (Setting Reskin does)
+
+**Setting Reskin Skill** (`trpg-setting-reskin`):
+Forks a parent Module into a Module Variant with era/place and proper-name remaps; requires non-empty `06-characters`, `10-npcs`, `04-timeline`, `07-locations`; writes `prep/16-setting-remap.md` on the variant only.
+_Avoid_: in-place parent edits; translation (Localize); inventing missing prep tables (Analyze)
 
 **Handout Art Skill** (`trpg-handout-art`):
 Writes Prompt Packs and asset path stubs for Portrait, Backdrop, Handout, each with a Source Page cite.

@@ -14,7 +14,7 @@ Human GM (Keep) toolkit: prepare a Module, run light Live Aid, recap a Session, 
 - [docs/next-steps.md](./docs/next-steps.md) — 每個 skill 都要推薦下一步
 - [docs/adr/](./docs/adr/) — decisions
 
-## Skills (1–12)
+## Skills (1–13)
 
 Install via this repo’s `skills/` (Cursor: `.cursor/skills` junctions).
 
@@ -24,6 +24,7 @@ Install via this repo’s `skills/` (Cursor: `.cursor/skills` junctions).
 | `trpg-campaign-setup` | Empty vault shells |
 | `trpg-scenario-analyze` | Prep structure pack |
 | `trpg-localize` | Translation + glossary |
+| `trpg-setting-reskin` | Module Variant: era/place/name remap (fork, not in-place) |
 | `trpg-handout-art` | Prompt Packs + paths |
 | `trpg-live-aid` | Session run sheet |
 | `trpg-session-recap` | Recap from notes |
@@ -37,7 +38,7 @@ Install via this repo’s `skills/` (Cursor: `.cursor/skills` junctions).
 
 1. Set vault root, e.g. `examples/vault` or your own folder.
 2. `/trpg-campaign-setup` (or ask the agent to run that skill).
-3. Put module text in `modules/<id>/source/`, then analyze → optional localize → handout-art → live-aid → play → notes → recap → publish.
+3. Put module text in `modules/<id>/source/`, then analyze → optional localize → optional setting-reskin → handout-art → live-aid → play → notes → recap → publish.
 
 ```bash
 # Empty vault shells

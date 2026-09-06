@@ -129,7 +129,7 @@ New NPCs/locations invented or uncertain → tag `DRAFT` until the GM accepts; d
 End every successful analyze turn with:
 
 > **下一步（建議）：** `/trpg-live-aid` — 先訂今晚章節／開團表（切場／BGM／handout，含劇本頁）。  
-> **也可以：** `/trpg-handout-art`（先寫 Prompt Pack）／`/trpg-localize`（還要譯）／草稿很多時先請 GM 確認 `DRAFT`。  
+> **也可以：** `/trpg-setting-reskin`（換時空／統一改名；須 06/10/04/07 齊）／`/trpg-handout-art`（先寫 Prompt Pack）／`/trpg-localize`（還要譯）／確認 `DRAFT`。  
 > Skills **不會**自動串接。
 
 If completeness checklist is mostly ❌: recommend fixing source pages or re-running analyze after GM answers gaps — still name the slash command.

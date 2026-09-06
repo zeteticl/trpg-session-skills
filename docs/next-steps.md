@@ -14,11 +14,13 @@ Every skill turn that finishes useful work **must end** by recommending the GM�
 ## Typical pipeline
 
 ```
-setup → analyze → (localize?) → live-aid
+setup → analyze → (localize?) → (setting-reskin?) → live-aid
   ↗ handout-art (optional, before or after live-aid) → (asset-generate?)
   → [play] → (transcribe?) → recap → archive-publish → (campaign-hub?)
 ```
 
-After **analyze**, primary next is `/trpg-live-aid` (pick tonight’s chapter / run sheet). `/trpg-handout-art` is an alternative when the GM wants Prompt Packs first.
+After **analyze**, primary next is `/trpg-live-aid` (pick tonight’s chapter / run sheet). Alternatives: `/trpg-setting-reskin`（要換時空／統一改名且 06/10/04/07 已齊）、`/trpg-handout-art`（先寫 Prompt Pack）。
+
+After **setting-reskin**, prefer `/trpg-handout-art` if prompts were remapped, else `/trpg-live-aid`; language change → `/trpg-localize` on the variant.
 
 `router` only names the next skill. `vault-tidy` returns to whatever was blocked (often analyze or recap).
