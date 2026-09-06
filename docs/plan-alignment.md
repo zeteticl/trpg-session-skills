@@ -16,6 +16,8 @@ Settled design vs repo status. Update when a decision changes.
 | Analyze refuses prep without source (ingest = setup only) | Done | `trpg-scenario-analyze` gate |
 | After analyze, primary next = live-aid (handout-art optional) | Done | `docs/next-steps.md` + analyze Next step |
 | Module Variant via setting-reskin (fork; gate 06/10/04/07; `16-setting-remap.md`) | Done | `trpg-setting-reskin`, CONTEXT, charter §13 |
+| Table recruit / Discord open-table pitch | Done | `trpg-table-recruit`, charter §14 |
+| 14 skills | Done | `skills/` |
 | Module + Campaign + Embedded Module | Done (layout); Embedded example optional | `docs/vault-layout.md`, setup skill |
 | Session Archive = usable MVP | Done | `/sessions/<id>/` |
 | Campaign Hub = upgrade home | Done | `/hub/`, `/pcs/<id>/` |
@@ -27,7 +29,6 @@ Settled design vs repo status. Update when a decision changes.
 | Personal prep localization | Done (skill) | `trpg-localize` |
 | Toolkit = skills + Astro + scripts + contracts + adapter stubs | Done | repo root |
 | No runtime bots in this repo | Done | ADR 0002, `adapters/hktrpg/` stub only |
-| 13 skills | Done | `skills/` |
 | Vault Root external; `examples/vault` demo | Done | examples + `TRPG_VAULT_ROOT` / `TRPG_CAMPAIGN_PATH` |
 | Astro Archive Generator | Done | ADR 0001, `archive/` |
 | Token Spec 256 + `token.json` | Done | `scripts/make_token.py` |

@@ -23,4 +23,6 @@ After **analyze**, primary next is `/trpg-live-aid` (pick tonight’s chapter / 
 
 After **setting-reskin**, prefer `/trpg-handout-art` if prompts were remapped, else `/trpg-live-aid`; language change → `/trpg-localize` on the variant.
 
+After prep is seat-ready, `/trpg-table-recruit` drafts the Discord／招團 field block (`table-recruit.md`).
+
 `router` only names the next skill. `vault-tidy` returns to whatever was blocked (often analyze or recap).

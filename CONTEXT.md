@@ -191,6 +191,10 @@ _Avoid_: redrawing the prep structure pack, publishing Archives; stripping `<!--
 Forks a parent Module into a Module Variant with era/place and proper-name remaps; requires non-empty `06-characters`, `10-npcs`, `04-timeline`, `07-locations`; writes `prep/16-setting-remap.md` on the variant only.
 _Avoid_: in-place parent edits; translation (Localize); inventing missing prep tables (Analyze)
 
+**Table Recruit Skill** (`trpg-table-recruit`):
+Writes a structured open-table / Discord recruit pitch (`table-recruit.md`): platform, voice, language, system, blurb, length, seats, style, difficulty, schedule, price, notes, background pre-reads, PC roles.
+_Avoid_: spoiling GM-only secrets; running Live Aid or Archive publish; pasting full copyrighted briefing text into public posts
+
 **Handout Art Skill** (`trpg-handout-art`):
 Writes Prompt Packs and asset path stubs for Portrait, Backdrop, Handout, each with a Source Page cite.
 _Avoid_: Token cropping (script), BGM selection, image API calls in MVP; inventing page numbers

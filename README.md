@@ -14,7 +14,7 @@ Human GM (Keep) toolkit: prepare a Module, run light Live Aid, recap a Session, 
 - [docs/next-steps.md](./docs/next-steps.md) — 每個 skill 都要推薦下一步
 - [docs/adr/](./docs/adr/) — decisions
 
-## Skills (1–13)
+## Skills (1–14)
 
 Install via this repo’s `skills/` (Cursor: `.cursor/skills` junctions).
 
@@ -25,6 +25,7 @@ Install via this repo’s `skills/` (Cursor: `.cursor/skills` junctions).
 | `trpg-scenario-analyze` | Prep structure pack |
 | `trpg-localize` | Translation + glossary |
 | `trpg-setting-reskin` | Module Variant: era/place/name remap (fork, not in-place) |
+| `trpg-table-recruit` | Discord / open-table recruit pitch |
 | `trpg-handout-art` | Prompt Packs + paths |
 | `trpg-live-aid` | Session run sheet |
 | `trpg-session-recap` | Recap from notes |

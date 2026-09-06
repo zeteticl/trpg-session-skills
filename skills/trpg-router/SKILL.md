@@ -3,7 +3,7 @@ name: trpg-router
 description: >
   Route TRPG GM intent to the correct trpg-* skill without writing vault files.
   Use when the user says 備團, 收團, 出圖, 翻譯, 開團表, 出站, setup vault, analyze module,
-  localize, setting reskin, handout art, live aid, recap, publish archive, or runs /trpg-router.
+  localize, setting reskin, table recruit, handout art, live aid, recap, publish archive, or runs /trpg-router.
   Do not use for actually preparing content — only dispatch.
 ---
 
@@ -23,6 +23,7 @@ Classify the GM request and **invoke or instruct the next skill**. Write **no** 
 | 拆劇本、備團結構、分析模組、6W、線索網 | `trpg-scenario-analyze` |
 | 翻譯、術語表、localize | `trpg-localize` |
 | 換皮、改時空、改人名地名、現代香港版、module variant、setting reskin | `trpg-setting-reskin` |
+| 招團、開團文、招生、recruit、跑團公告、table invite | `trpg-table-recruit` |
 | 出圖 prompt、人像、背圖、handout 檔名 | `trpg-handout-art` |
 | 開團表、BGM 順序、揭示順序、live aid | `trpg-live-aid` |
 | 團摘要、收團、recap、未解線索 | `trpg-session-recap` |

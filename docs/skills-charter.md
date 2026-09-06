@@ -1,8 +1,8 @@
 # Skills Charter
 
-十三個 skill，各管一件事。本文是職責邊界的說明；短詞彙仍以 `CONTEXT.md` 為準。
+十四個 skill，各管一件事。本文是職責邊界的說明；短詞彙仍以 `CONTEXT.md` 為準。
 
-Skills 1–13 均已提供 SKILL.md。Token 裁切等腳本不算 skill。
+Skills 1–14 均已提供 SKILL.md。Token 裁切等腳本不算 skill。
 
 **每個 skill 結束時都必須引導「下一步」**（建議的 `/trpg-…` 指令＋一句原因）；skills **不會**自動串接。見 `docs/next-steps.md`。
 
@@ -123,6 +123,14 @@ GM 附上 Module 正文。Analyze 讀正文，寫出備團用的完整結構包�
 
 ---
 
+## 14. trpg-table-recruit — 開團／招團資訊
+
+依固定欄位產出可貼 Discord（或同類）的招團文：平台、交流方式／語言、系統、模組內容鉤子、時長、人數、風格、難度、時段、收費、注意事項、背景須知（只點名預讀檔）、角色位。可從 prep 起草玩家向簡介，**禁止劇透**。寫入 `campaigns/<id>/table-recruit.md`（或模組 `prep/17-table-recruit.md`）。
+
+不代主持、不寫 live-aid、不出站。
+
+---
+
 ## 產物所有權（防踩線）
 
 | 產物 | 唯一寫入者 |
@@ -139,4 +147,5 @@ GM 附上 Module 正文。Analyze 讀正文，寫出備團用的完整結構包�
 | 僅搬檔／INDEX | vault-tidy |
 | 依 Prompt Pack 寫出的資源檔 | asset-generate |
 | Module Variant 目錄＋`prep/16-setting-remap.md`＋變體內統一改名 | setting-reskin |
+| 招團／開團資訊（`table-recruit.md`） | table-recruit |
 | Token PNG＋token.json | 腳本（非 skill） |

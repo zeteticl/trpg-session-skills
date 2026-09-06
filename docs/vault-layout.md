@@ -21,9 +21,10 @@ Formats: [formats.md](./formats.md) (Markdown by default). Site routes: [plan-al
         backdrops/
         handouts/
         tokens/                   # token.png + token.json (machine)
-  campaigns/
+      campaigns/
     <campaign-id>/
       campaign.yaml               # machine
+      table-recruit.md            # table-recruit owns — Discord/open-table pitch
       pcs/
         <pc-id>.md
       hub/
@@ -48,6 +49,8 @@ Formats: [formats.md](./formats.md) (Markdown by default). Site routes: [plan-al
 `00-overview.md` … `15-special-systems.md` — analyze owns (see `trpg-scenario-analyze` / charter §3).
 
 `16-setting-remap.md` — **setting-reskin owns** (only on Module Variant folders).
+
+`17-table-recruit.md` — optional module-level draft when no campaign yet (**table-recruit**); prefer `campaigns/<id>/table-recruit.md`.
 
 ## Module Variant
 
